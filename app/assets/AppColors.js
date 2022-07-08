@@ -161,5 +161,10 @@ export const Colors = {
     inputBackground: 'rgba(0, 0, 0, 0.3)',
     detailColor: '#8A8CB2',
     tabBarTitleUnselected: '#F2F4FF',
-    redOrange: '#FA4533'
+    redOrange: '#FA4533',
+    // app
+    mainColor: '#A8DEE0',
+    background: '#E5E5E5',
+    text: '#2B395B',
+    
 }

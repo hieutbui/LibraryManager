@@ -23,7 +23,11 @@ const AppNavigator = () => {
                     headerStyle: { backgroundColor: 'tomato' },
                 }}
             >
-                <Stack.Screen name={ScreenNames.LoginScreen} component={LoginScreen} />
+                <Stack.Screen
+                    name={ScreenNames.LoginScreen}
+                    component={LoginScreen}
+                    options={{ headerShown: false }}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     )
