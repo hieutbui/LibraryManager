@@ -1,25 +1,26 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, useColorScheme,Text} from 'react-native';
+import { SafeAreaView, StatusBar, useColorScheme, Text } from 'react-native';
 import HomeScreen from './home/HomeScreen';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/lib/integration/react'
-import {persistor, store} from '../controllers/redux/AppStore';
+import { persistor, store } from '../controllers/redux/AppStore';
+import AppNavigator from './navigators/AppNavigator'
 
 
-const App  = () => {
-    const isDarkMode = useColorScheme() === 'dark';
+const App = () => {
+  const isDarkMode = useColorScheme() === 'dark';
 
-    return (
-        <SafeAreaProvider>
-            <Provider store={store}>
-                <PersistGate persistor={persistor}>
-                    <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-                    <HomeScreen/>
-                </PersistGate>
-            </Provider>
-        </SafeAreaProvider>
-    );
+  return (
+    <SafeAreaProvider>
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+          <AppNavigator />
+        </PersistGate>
+      </Provider>
+    </SafeAreaProvider>
+  );
 };
 
 
