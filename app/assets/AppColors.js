@@ -146,7 +146,6 @@ export const Colors = {
     yellowgreen: "#9acd32",
     // custom
     borderGray: "#E5E5EA90",
-    background: ['#2D3C72', '#1E2459', '#101D3D'],
     gradientBottomBackground: '#101D3D',
     headerBackground: '#1E2459',
     bgBlue: "#2A98EE",
@@ -164,7 +163,7 @@ export const Colors = {
     redOrange: '#FA4533',
     // app
     mainColor: '#A8DEE0',
-    background: '#E5E5E5',
+    background: '#F8F7FE',
     text: '#2B395B',
-    
+
 }

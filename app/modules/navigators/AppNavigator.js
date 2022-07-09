@@ -3,10 +3,9 @@ import { CardStyleInterpolators, createStackNavigator } from "@react-navigation/
 import React, { useEffect, useLayoutEffect, useState } from "react"
 import { enableScreens } from "react-native-screens"
 import HomeScreen from '../home/HomeScreen';
-import LoginScreen from '../login/LoginScreen'
 import { ScreenNames } from '../../general/constants/ScreenNames'
-
-
+import LoginScreen from '../auth/login/LoginScreen'
+import RegisterScreen from '../auth/register/RegisterScreen'
 
 enableScreens()
 const Stack = createStackNavigator()
@@ -26,6 +25,11 @@ const AppNavigator = () => {
                 <Stack.Screen
                     name={ScreenNames.LoginScreen}
                     component={LoginScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name={ScreenNames.RegisterScreen}
+                    component={RegisterScreen}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
