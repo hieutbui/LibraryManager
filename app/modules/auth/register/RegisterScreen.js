@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import { Assets } from '../../../assets/Assets'
 import { ScreenNames } from '../../../general/constants/ScreenNames';
-import { useNavigation } from '@react-navigation/native';
 
 const Register = (props) => {
 
