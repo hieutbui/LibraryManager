@@ -28,7 +28,7 @@ const actions = {
 
 }
 
-const LoginSlice = createSlice({
+const UserQRSlice = createSlice({
     name: 'slice/call',
     initialState,
     reducers: actions,
@@ -37,5 +37,5 @@ const LoginSlice = createSlice({
     }
 })
 
-export default LoginSlice.reducer;
+export default UserQRSlice.reducer;
 

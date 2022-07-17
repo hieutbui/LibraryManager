@@ -28,7 +28,7 @@ const actions = {
 
 }
 
-const HomeSlice = createSlice({
+const UserHomeSlice = createSlice({
     name: 'slice/call',
     initialState,
     reducers: actions,
@@ -37,5 +37,5 @@ const HomeSlice = createSlice({
     }
 })
 
-export default HomeSlice.reducer;
+export default UserHomeSlice.reducer;
 

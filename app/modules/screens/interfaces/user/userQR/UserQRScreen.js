@@ -9,12 +9,12 @@ import {
     View,
 } from 'react-native';
 
-const HomeScreen = () => {
+const UserQRScreen = () => {
     return (
-        <View>
-            <Text>Home</Text>
+        <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
+            <Text style={{ color: '#000000' }}>ScanQR</Text>
         </View>
     )
 }
 
-export default HomeScreen;
+export default UserQRScreen;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     StyleSheet,
     Text,
@@ -7,13 +7,25 @@ import {
     TouchableOpacity,
     Image,
 } from 'react-native';
-import { Assets } from '../../../assets/Assets'
-import { ScreenNames } from '../../../general/constants/ScreenNames';
+import { Assets } from '../../../../assets/Assets'
+import { ScreenNames } from '../../../../general/constants/ScreenNames';
+import * as RootNavigation from '../../../navigators/RootNavigation'
+import { Font, FontSize, FontWeight } from '../../../../general/constants/FontStyle'
 
-const Register = (props) => {
+const SignUpScreen = () => {
 
-    const login = () => {
-        props.navigation.navigate(ScreenNames.LoginScreen)
+    const gotoSignInScreen = () => {
+        RootNavigation.navigate(ScreenNames.signInScreen)
+    }
+
+    const [userType, setUserType] = useState(1)
+
+    const setUser = () => {
+        setUserType(1)
+    }
+
+    const setStaff = () => {
+        setUserType(0)
     }
 
     return (
@@ -25,23 +37,48 @@ const Register = (props) => {
                     <Text style={styles.loginFieldName}>Tên đăng nhập:</Text>
                     <TextInput
                         placeholder='Nhập email hoặc số điện thoại'
-                        placeholderTextColor='#AAB0BD'
+                        placeholderTextColor={Assets.Colors.placeHolderColor}
                         style={styles.inputField}
                     />
 
                     <Text style={{ ...styles.loginFieldName, marginTop: 8 }}>Mật khẩu:</Text>
                     <TextInput
                         placeholder='Nhập mật khẩu'
-                        placeholderTextColor='#AAB0BD'
+                        placeholderTextColor={Assets.Colors.placeHolderColor}
                         style={styles.inputField}
                     />
 
                     <Text style={{ ...styles.loginFieldName, marginTop: 8 }}>Nhập lại mật khẩu:</Text>
                     <TextInput
                         placeholder='Nhập lại mật khẩu'
-                        placeholderTextColor='#AAB0BD'
+                        placeholderTextColor={Assets.Colors.placeHolderColor}
                         style={styles.inputField}
                     />
+
+                    <Text style={{ ...styles.loginFieldName, marginTop: 8 }}>Loại tài khoản:</Text>
+                    <View style={styles.userTypeArea}>
+                        <TouchableOpacity
+                            style={{
+                                ...styles.userType,
+                                borderTopLeftRadius: 10,
+                                borderBottomLeftRadius: 10,
+                                backgroundColor: (userType == 1) ? Assets.Colors.mainColor : 'transparent'
+                            }}
+                            onPress={setUser}>
+                            <Text style={{ ...styles.buttonText, color: (userType == 1) ? Assets.Colors.pureWhite : Assets.Colors.text }}>Người sử dụng</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            style={{
+                                ...styles.userType,
+                                borderTopRightRadius: 10,
+                                borderBottomRightRadius: 10,
+                                backgroundColor: (userType == 0) ? Assets.Colors.mainColor : 'transparent'
+                            }}
+                            onPress={setStaff}>
+                            <Text style={{ ...styles.buttonText, color: (userType == 0) ? Assets.Colors.pureWhite : Assets.Colors.text }}>Nhân viên</Text>
+                        </TouchableOpacity>
+                    </View>
 
                     <TouchableOpacity style={styles.loginButton}>
                         <Text style={styles.buttonText}>Đăng ký</Text>
@@ -50,11 +87,11 @@ const Register = (props) => {
 
                 <View style={styles.loginAlternative}>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <View style={{ flex: 1, height: 1, backgroundColor: '#BBBECD' }} />
+                        <View style={{ flex: 1, height: 1, backgroundColor: Assets.Colors.separatorColor }} />
                         <View style={{ width: 50, alignItems: 'center' }}>
                             <Text style={styles.separator}>hoặc</Text>
                         </View>
-                        <View style={{ flex: 1, height: 1, backgroundColor: '#BBBECD' }} />
+                        <View style={{ flex: 1, height: 1, backgroundColor: Assets.Colors.separatorColor }} />
                     </View>
 
                     <View style={styles.loginOption}>
@@ -72,7 +109,7 @@ const Register = (props) => {
             </View>
             <View style={{ flexDirection: 'row', flex: 0.05, alignItems: 'flex-end', justifyContent: 'center', paddingBottom: 8 }}>
                 <Text style={{ ...styles.separator, color: Assets.Colors.text }}>Bạn đã có tài khoản?  </Text>
-                <TouchableOpacity onPress={login}>
+                <TouchableOpacity onPress={gotoSignInScreen}>
                     <Text style={{ ...styles.forgotPassword, marginTop: 0 }}>Đăng nhập</Text>
                 </TouchableOpacity>
             </View>
@@ -83,10 +120,10 @@ const Register = (props) => {
 const styles = StyleSheet.create({
     title: {
         color: Assets.Colors.text,
-        fontSize: 32,
+        fontSize: FontSize.s_32,
         lineHeight: 40,
-        fontFamily: 'Quicksand-Regular',
-        fontWeight: '700',
+        fontFamily: Font.regular,
+        fontWeight: FontWeight.w_700,
         paddingHorizontal: 40,
         paddingBottom: 56
     },
@@ -94,21 +131,21 @@ const styles = StyleSheet.create({
         paddingHorizontal: 40
     },
     loginFieldName: {
-        fontFamily: 'Quicksand-Regular',
+        fontFamily: Font.regular,
         color: Assets.Colors.text,
-        fontWeight: '500',
+        fontWeight: FontWeight.w_500,
         lineHeight: 18,
-        fontSize: 14,
+        fontSize: FontSize.s_14,
     },
     inputField: {
-        backgroundColor: '#ffffff',
+        backgroundColor: Assets.Colors.pureWhite,
         borderRadius: 10,
         marginTop: 8
     },
     forgotPassword: {
-        fontFamily: 'Quicksand-Regular',
-        fontWeight: '500',
-        fontSize: 14,
+        fontFamily: Font.regular,
+        fontWeight: FontWeight.w_500,
+        fontSize: FontSize.s_14,
         lineHeight: 17.5,
         textDecorationLine: 'underline',
         color: Assets.Colors.mainColor,
@@ -124,22 +161,22 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     buttonText: {
-        fontFamily: 'Quicksand-Regular',
-        fontWeight: '700',
-        fontSize: 14,
+        fontFamily: Font.regular,
+        fontWeight: FontWeight.w_700,
+        fontSize: FontSize.s_14,
         lineHeight: 17.5,
-        color: '#ffffff'
+        color: Assets.Colors.pureWhite
     },
     loginAlternative: {
-        paddingTop: 80,
+        marginTop: 60,
         paddingHorizontal: 40,
     },
     separator: {
-        fontFamily: 'Quicksand-Regular',
-        fontWeight: '500',
-        fontSize: 14,
+        fontFamily: Font.regular,
+        fontWeight: FontWeight.w_500,
+        fontSize: FontSize.s_14,
         lineHeight: 17.5,
-        color: '#BBBECD',
+        color: Assets.Colors.separatorColor,
     },
     socialNetwork: {
         width: 24,
@@ -148,13 +185,25 @@ const styles = StyleSheet.create({
     },
     socialNetworkOption: {
         height: 50,
-        backgroundColor: '#ffffff',
-        marginTop: 32,
+        backgroundColor: Assets.Colors.pureWhite,
+        marginTop: 25,
         borderRadius: 12,
         flexDirection: 'row',
         alignItems: 'center',
     },
+    userTypeArea: {
+        flexDirection: 'row',
+        marginTop: 8
+    },
+    userType: {
+        flex: 1,
+        borderWidth: 1,
+        borderColor: Assets.Colors.mainColor,
+        height: 25,
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
 
 })
 
-export default Register;
+export default SignUpScreen;

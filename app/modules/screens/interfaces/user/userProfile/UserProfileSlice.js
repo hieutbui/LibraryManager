@@ -28,7 +28,7 @@ const actions = {
 
 }
 
-const RegisterSlice = createSlice({
+const UserProfileSlice = createSlice({
     name: 'slice/call',
     initialState,
     reducers: actions,
@@ -37,5 +37,5 @@ const RegisterSlice = createSlice({
     }
 })
 
-export default RegisterSlice.reducer;
+export default UserProfileSlice.reducer;
 
