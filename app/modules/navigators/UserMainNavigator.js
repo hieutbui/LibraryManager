@@ -6,15 +6,17 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import UserHomeScreen from '../screens/interfaces/user/userHome/UserHomeScreen'
 import UserLibrarianScreen from '../screens/interfaces/user/userLibrarian/UserLibrarianScreen'
 import UserQRScreen from '../screens/interfaces/user/userQR/UserQRScreen'
-import UserProfileScreen from '../screens/interfaces/user/userProfile/UserProfileScreen'
 import UserHomeNavigator from './UserHomeNavigator'
 import { Assets } from '../../assets/Assets'
 import { Image } from 'react-native'
+import UserLibrarianNavigator from './UserLibrarianNavigator'
+import UserProfileNavigator from './UserProfileNavigator'
 
 enableScreens()
 const Tab = createBottomTabNavigator()
 
-const UserMainNavigator = () => {
+const UserMainNavigator = ({ route }) => {
+
     return (
         <Tab.Navigator
             initialRouteName={ScreenNames.userHomeNavigator}
@@ -24,10 +26,14 @@ const UserMainNavigator = () => {
                     borderTopLeftRadius: 30,
                     borderTopRightRadius: 30,
                     height: 90,
-                    position: 'absolute'
+                    position: 'absolute',
                 },
                 tabBarInactiveTintColor: Assets.Colors.text,
-                tabBarActiveTintColor: Assets.Colors.mainColor
+                tabBarActiveTintColor: Assets.Colors.mainColor,
+                tabBarLabelStyle: {
+                    marginBottom: 8,
+                },
+                tabBarAllowFontScaling: true,
             }}
         >
             <Tab.Screen
@@ -39,8 +45,8 @@ const UserMainNavigator = () => {
                 }}
             />
             <Tab.Screen
-                name={ScreenNames.userLibrarianScreen}
-                component={UserLibrarianScreen}
+                name={ScreenNames.userLibrarianNavigator}
+                component={UserLibrarianNavigator}
                 options={{
                     tabBarIcon: ({ focused }) => (<Image source={focused ? Assets.Icons.ic_activeLibrarian : Assets.Icons.ic_inactiveLibrarian} style={{ width: 27.84, height: 28, resizeMode: 'contain' }} />),
                     tabBarLabel: 'Thư viện'
@@ -55,11 +61,14 @@ const UserMainNavigator = () => {
                 }}
             />
             <Tab.Screen
-                name={ScreenNames.userProfileScreen}
-                component={UserProfileScreen}
+                name={ScreenNames.userProfileNavigator}
+                component={UserProfileNavigator}
                 options={{
                     tabBarIcon: ({ focused }) => (<Image source={focused ? Assets.Icons.ic_activeProfile : Assets.Icons.ic_inactiveProfile} style={{ width: 22.17, height: 28, resizeMode: 'contain' }} />),
                     tabBarLabel: 'Tôi'
+                }}
+                initialParams={{
+                    userName: route.params.userName,
                 }}
             />
         </Tab.Navigator>

@@ -44,7 +44,9 @@ const SignInScreen = () => {
         if (foundAccount) {
             if (foundAccount.password == inputPassword) {
                 if (foundAccount.accountType == 'user') {
-                    RootNavigation.navigate(ScreenNames.userMainNavigator)
+                    RootNavigation.navigate(ScreenNames.userMainNavigator, {
+                        userName: foundAccount.userName
+                    })
                     setWrongAccountCheck(false)
                 } else {
                     // go to staff navigator
@@ -61,7 +63,7 @@ const SignInScreen = () => {
 
 
     const gotoSignUpScreen = () => {
-        RootNavigation.navigate(ScreenNames.SignUpScreen)
+        RootNavigation.navigate(ScreenNames.signUpScreen)
     }
 
     return (

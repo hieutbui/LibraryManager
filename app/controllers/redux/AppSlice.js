@@ -10,6 +10,7 @@ import BookSlice from "../../modules/screens/interfaces/user/book/BookSlice"
 import CategorySlice from "../../modules/screens/interfaces/user/category/CategorySlice"
 import UserNotificationSlice from "../../modules/screens/interfaces/user/userNoti/UserNotificationSlice"
 import UserSettingSlice from "../../modules/screens/interfaces/user/userSetting/UserSettingSlice"
+import LibraryInfoSlice from "../../modules/screens/interfaces/user/libraryInfo/LibraryInfoSlice"
 
 const reducers = combineReducers({
     signIn: SignInSlice,
@@ -23,6 +24,7 @@ const reducers = combineReducers({
     category: CategorySlice,
     userNotification: UserNotificationSlice,
     userSetting: UserSettingSlice,
+    library: LibraryInfoSlice
 })
 
 const rootReducer = (state, action) => {

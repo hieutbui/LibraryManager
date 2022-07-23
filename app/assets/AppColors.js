@@ -1,7 +1,7 @@
 export const Colors = {
     // app
     mainColor: '#A8DEE0',
-    background: '#F8F7FE',
+    background: '#F5F4FB',
     text: '#2B395B',
     pureWhite: '#ffffff',
     separatorColor: '#BBBECD',

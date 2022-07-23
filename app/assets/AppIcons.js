@@ -11,4 +11,5 @@ export const Icons = {
     ic_activeLibrarian: require('./icons/activeLibrarian.icon.jpg'),
     ic_activeProfile: require('./icons/activeProfile.icon.jpg'),
     ic_scanQR: require('./icons/scan.icon.png'),
+    ic_popDown: require('./icons/popDown.icon.png'),
 }

@@ -12,7 +12,7 @@ enableScreens()
 
 const Stack = createStackNavigator()
 
-const UserProfileNavigator = () => {
+const UserProfileNavigator = ({ route }) => {
     return (
         <Stack.Navigator
             initialRouteName={ScreenNames.userProfileScreen}
@@ -23,6 +23,9 @@ const UserProfileNavigator = () => {
             <Stack.Screen
                 name={ScreenNames.userProfileScreen}
                 component={UserProfileScreen}
+                initialParams={{
+                    userName: route.params.userName
+                }}
             />
 
             <Stack.Screen
@@ -34,7 +37,7 @@ const UserProfileNavigator = () => {
                 name={ScreenNames.calendarScreen}
                 component={CalendarScreen}
             />
-            <Stack.Screen 
+            <Stack.Screen
                 name={ScreenNames.userSettingScreen}
                 component={UserSettingScreen}
             />

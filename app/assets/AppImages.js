@@ -16,4 +16,12 @@ export const Images = {
     history: require('./images/history.img.jpg'),
     novel: require('./images/novel.img.jpg'),
     science: require('./images/science.img.jpg'),
+    library1: require('./images/library1.img.jpg'),
+    library2: require('./images/library2.img.jpg'),
+    library3: require('./images/library3.img.jpg'),
+    library4: require('./images/library4.img.jpg'),
+    library5: require('./images/library5.img.jpg'),
+    library6: require('./images/library6.img.jpg'),
+    profileBackground: require('./images/profileBackground.img.jpg'),
+    userAvatar: require('./images/user.img.png')
 }

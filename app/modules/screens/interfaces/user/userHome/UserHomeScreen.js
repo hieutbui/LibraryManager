@@ -27,18 +27,18 @@ const UserHomeScreen = () => {
     const forYou = Books.slice(3, 8)
     const popular = Books.slice(8, 12)
 
-    const gotoBookScreen = () => {
-        RootNavigator.navigate(ScreenNames.bookScreen, {
-            bookName: Books[0].name
-        })
-    }
-
     const FlatListItemBook = (props) => {
         const { book, temIndex } = props
         const { coverPath, name, author, description, star } = book
 
+        const gotoBookScreen = () => {
+            RootNavigator.navigate(ScreenNames.bookScreen, {
+                bookName: name
+            })
+        }
+
         return (
-            <TouchableOpacity style={styles.itemContainer}>
+            <TouchableOpacity style={styles.itemContainer} onPress={gotoBookScreen}>
                 <Image source={coverPath} style={styles.bookCover} />
                 <Text style={styles.bookName}>{name}</Text>
                 <Text style={styles.authorName}>{author}</Text>
@@ -58,10 +58,18 @@ const UserHomeScreen = () => {
         const { category, itemIndex } = props
         const { img, title } = category
 
+        const gotoCategoryScreen = () => {
+            RootNavigator.navigate(ScreenNames.categoryScreen, {
+                category: title
+            })
+        }
+
         return (
-            <ImageBackground source={img} style={styles.categoryImg}>
-                <Text style={styles.categoryTitle}>{title}</Text>
-            </ImageBackground>
+            <TouchableOpacity onPress={gotoCategoryScreen}>
+                <ImageBackground source={img} style={styles.categoryImg}>
+                    <Text style={styles.categoryTitle}>{title}</Text>
+                </ImageBackground>
+            </TouchableOpacity>
         )
     }
 
@@ -71,7 +79,7 @@ const UserHomeScreen = () => {
 
 
     return (
-        <ScrollView style={{ backgroundColor: Assets.Colors.background, flex: 1 }}>
+        <View style={{ backgroundColor: Assets.Colors.background, flex: 1 }} showsVerticalScrollIndicator={false}>
 
             <View style={styles.searchBar}>
                 <Image source={Assets.Icons.ic_search} style={{ marginLeft: 10, height: 24, width: 23.96 }} />
@@ -83,70 +91,72 @@ const UserHomeScreen = () => {
                 />
             </View>
 
-            <View style={styles.block}>
-                <View style={styles.field}>
-                    <Text style={styles.fieldTitle}>Mới nhất</Text>
-                    <TouchableOpacity>
-                        <Text style={styles.seeAll}>Xem tất cả</Text>
-                    </TouchableOpacity>
+            <ScrollView>
+                <View style={styles.block}>
+                    <View style={styles.field}>
+                        <Text style={styles.fieldTitle}>Mới nhất</Text>
+                        <TouchableOpacity>
+                            <Text style={styles.seeAll}>Xem tất cả</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <FlatList
+                        data={newest}
+                        keyExtractor={item => item.name}
+                        renderItem={renderBookItems}
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                    />
                 </View>
-                <FlatList
-                    data={newest}
-                    keyExtractor={item => item.name}
-                    renderItem={renderBookItems}
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                />
-            </View>
 
-            <View style={styles.block}>
-                <View style={styles.field}>
-                    <Text style={styles.fieldTitle}>Thể loại</Text>
-                    <TouchableOpacity>
-                        <Text style={styles.seeAll}>Xem tất cả</Text>
-                    </TouchableOpacity>
+                <View style={styles.block}>
+                    <View style={styles.field}>
+                        <Text style={styles.fieldTitle}>Thể loại</Text>
+                        <TouchableOpacity>
+                            <Text style={styles.seeAll}>Xem tất cả</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <FlatList
+                        data={Category}
+                        keyExtractor={item => item.title}
+                        renderItem={renderCategoryItems}
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                    />
                 </View>
-                <FlatList
-                    data={Category}
-                    keyExtractor={item => item.title}
-                    renderItem={renderCategoryItems}
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                />
-            </View>
 
-            <View style={styles.block}>
-                <View style={styles.field}>
-                    <Text style={styles.fieldTitle}>Dành cho bạn</Text>
-                    <TouchableOpacity>
-                        <Text style={styles.seeAll}>Xem tất cả</Text>
-                    </TouchableOpacity>
+                <View style={styles.block}>
+                    <View style={styles.field}>
+                        <Text style={styles.fieldTitle}>Dành cho bạn</Text>
+                        <TouchableOpacity>
+                            <Text style={styles.seeAll}>Xem tất cả</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <FlatList
+                        data={forYou}
+                        keyExtractor={item => item.name}
+                        renderItem={renderBookItems}
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                    />
                 </View>
-                <FlatList
-                    data={forYou}
-                    keyExtractor={item => item.name}
-                    renderItem={renderBookItems}
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                />
-            </View>
 
-            <View style={{ ...styles.block, marginBottom: 100 }}>
-                <View style={styles.field}>
-                    <Text style={styles.fieldTitle}>Phổ biến</Text>
-                    <TouchableOpacity>
-                        <Text style={styles.seeAll}>Xem tất cả</Text>
-                    </TouchableOpacity>
+                <View style={{ ...styles.block, marginBottom: 100 }}>
+                    <View style={styles.field}>
+                        <Text style={styles.fieldTitle}>Phổ biến</Text>
+                        <TouchableOpacity>
+                            <Text style={styles.seeAll}>Xem tất cả</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <FlatList
+                        data={popular}
+                        keyExtractor={item => item.name}
+                        renderItem={renderBookItems}
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                    />
                 </View>
-                <FlatList
-                    data={popular}
-                    keyExtractor={item => item.name}
-                    renderItem={renderBookItems}
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                />
-            </View>
-        </ScrollView>
+            </ScrollView>
+        </View>
     )
 }
 

@@ -2,7 +2,7 @@ export const ScreenNames = {
     signInScreen: 'SignIn',
     signUpScreen: 'SignUp',
     userHomeScreen: 'Trang chủ',
-    userLibrarianScreen: 'UserLibrarian',
+    userLibrarianScreen: 'Thư viện',
     userProfileScreen: 'UserProfile',
     userQRScreen: 'UserQR',
     calendarScreen: 'Calendar',
@@ -10,9 +10,11 @@ export const ScreenNames = {
     categoryScreen: 'Category',
     userNotificationScreen: 'UserNotification',
     userSettingScreen: 'UserSetting',
+    libraryInfoScreen: 'LibraryInfoScreen',
 
     // navigator
     userMainNavigator: 'UserMainNavigator',
     userHomeNavigator: 'UserHomeNavigator',
     userProfileNavigator: 'UserProfileNavigator',
+    userLibrarianNavigator: 'UserLibrarianNavigator',
 }

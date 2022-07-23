@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, useColorScheme, Text } from 'react-native';
+import {StatusBar} from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/lib/integration/react'
@@ -18,7 +18,7 @@ const App = () => {
           use it when have 2 interfaces
           <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} /> 
           */}
-          <StatusBar barStyle={'light-content'} />
+          <StatusBar barStyle={'dark-content'} backgroundColor={'#ffffff'}  />
           <AppNavigator />
         </PersistGate>
       </Provider>
