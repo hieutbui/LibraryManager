@@ -90,6 +90,7 @@ const SignInScreen = () => {
                         placeholderTextColor={Assets.Colors.placeHolderColor}
                         style={styles.inputField}
                         onChangeText={text => typingPassword(text)}
+                        secureTextEntry={true}
                     />
 
                     <TouchableOpacity>

@@ -7,6 +7,5 @@ export const Colors = {
     separatorColor: '#BBBECD',
     placeHolderColor: '#AAB0BD',
     redAlert: '#E1CACE',
-    problemText: '#841A2C'
-
+    problemText: '#841A2C',
 }
