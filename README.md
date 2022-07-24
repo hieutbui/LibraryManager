@@ -32,7 +32,7 @@ For running this application, you must install:
     + Click New and add the path to platform-tools to the list.
     
 After all of this setup is done, install node_module to the folder where you place this project by running the code:
-    npm install or yarn install
+    npm install or yarn install.
 Finally, run this app:
     yarn android 
     Or npx react-native start -> npx react-native run-android
