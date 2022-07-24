@@ -29,11 +29,11 @@ const UserHomeScreen = () => {
 
     const FlatListItemBook = (props) => {
         const { book, temIndex } = props
-        const { coverPath, name, author, description, star } = book
+        const { coverPath, name, author, description, star, bookId } = book
 
         const gotoBookScreen = () => {
             RootNavigator.navigate(ScreenNames.bookScreen, {
-                bookName: name
+                bookId: bookId
             })
         }
 
@@ -65,8 +65,8 @@ const UserHomeScreen = () => {
         }
 
         return (
-            <TouchableOpacity onPress={gotoCategoryScreen}>
-                <ImageBackground source={img} style={styles.categoryImg}>
+            <TouchableOpacity onPress={gotoCategoryScreen} style={{overflow: 'hidden'}}>
+                <ImageBackground source={img} style={styles.categoryImg} imageStyle={{borderRadius: 15}}>
                     <Text style={styles.categoryTitle}>{title}</Text>
                 </ImageBackground>
             </TouchableOpacity>

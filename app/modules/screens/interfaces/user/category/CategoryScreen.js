@@ -9,12 +9,13 @@ import {
     useColorScheme,
     View,
 } from 'react-native';
+import { Assets } from '../../../../../assets/Assets';
 
 const CategoryScreen = () => {
 
     return (
-        <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
-            <Text style={{ color: '#000000' }}>Category</Text>
+        <View style={{ backgroundColor: Assets.Colors.background, flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text style={{ color: '#000000' }}>Coming soon!</Text>
         </View>
     )
 }

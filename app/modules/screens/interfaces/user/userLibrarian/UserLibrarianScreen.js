@@ -22,7 +22,7 @@ const UserLibrarianScreen = () => {
 
     const FlatListItem = (props) => {
         const { librarian, itemIndex } = props
-        const { name, booksAmount, img } = librarian
+        const { name, img, books } = librarian
 
         const gotoLibraryInfo = () => {
             RootNavigation.navigate(ScreenNames.libraryInfoScreen, {
@@ -34,7 +34,7 @@ const UserLibrarianScreen = () => {
             <TouchableOpacity style={styles.itemContainer} onPress={gotoLibraryInfo}>
                 <Image source={img} style={{ width: 182, height: 129 }} />
                 <Text style={styles.librarianName}>{name}</Text>
-                <Text style={styles.bookAmount}>{booksAmount} sách</Text>
+                <Text style={styles.bookAmount}>{books.length} sách</Text>
             </TouchableOpacity>
         )
     }

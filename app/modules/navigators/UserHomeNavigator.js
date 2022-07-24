@@ -30,12 +30,27 @@ const UserHomeNavigator = () => {
         )
     }
 
+    const headerBackImage = () => {
+        return (
+            <Image source={Assets.Icons.ic_backArrow} style={{ width: 10, height: 17.32, resizeMode: 'contain' }} />
+        )
+    }
+
+    const bookScreenHeaderRight = () => {
+        return (
+            <TouchableOpacity style={{ marginRight: 10 }}>
+                <Image source={Assets.Icons.ic_heart} style={{ height: 18, width: 22, resizeMode: 'contain' }} />
+            </TouchableOpacity>
+        )
+    }
+
     return (
         <Stack.Navigator
             initialRouteName={ScreenNames.userHomeScreen}
             screenOptions={{
                 headerTitleAlign: 'center',
                 headerTitleStyle: styles.headerTitleStyle,
+                headerBackImage: headerBackImage
             }}
         >
             <Stack.Screen
@@ -53,6 +68,8 @@ const UserHomeNavigator = () => {
                 component={BookScreen}
                 options={{
                     headerStyle: styles.headerStyle,
+                    headerTitle: '',
+                    headerRight: bookScreenHeaderRight
                 }}
             />
 

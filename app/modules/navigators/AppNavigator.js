@@ -9,6 +9,7 @@ import { navigationRef } from './RootNavigation'
 import SignInScreen from '../screens/auth/signIn/SignInScreen'
 import SignUpScreen from '../screens/auth/signUp/SignUpScreen'
 import UserMainNavigator from './UserMainNavigator'
+import StaffMainNavigator from './StaffMainNavigator'
 
 enableScreens()
 const Stack = createStackNavigator()
@@ -39,6 +40,11 @@ const AppNavigator = () => {
                 <Stack.Screen
                     name={ScreenNames.userMainNavigator}
                     component={UserMainNavigator}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name={ScreenNames.staffMainNavigator}
+                    component={StaffMainNavigator}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>

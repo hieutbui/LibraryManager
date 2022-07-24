@@ -1,0 +1,42 @@
+export const Invoices = [
+    {
+        invoiceId: 1,
+        userId: 2,
+        librarianId: 2,
+        booksId: [2, 12, 14],
+        startDate: '15/07/2022',
+        endDate: '15/08/2022',
+    },
+    {
+        invoiceId: 2,
+        userId: 2,
+        librarianId: 5,
+        booksId: [17, 19],
+        startDate: '30/06/2022',
+        endDate: '30/07/2022',
+    },
+    {
+        invoiceId: 3,
+        userId: 4,
+        librarianId: 2,
+        booksId: [11, 14, 18],
+        startDate: '30/06/2022',
+        endDate: '30/07/2022',
+    },
+    {
+        invoiceId: 4,
+        userId: 4,
+        librarianId: 2,
+        booksId: [16, 17],
+        startDate: '10/07/2022',
+        endDate: '20/08/2022',
+    },
+    {
+        invoiceId: 5,
+        userId: 4,
+        librarianId: 5,
+        booksId: [5, 19],
+        startDate: '02/07/2022',
+        endDate: '02/08/2022',
+    },
+]

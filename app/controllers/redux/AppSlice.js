@@ -11,6 +11,10 @@ import CategorySlice from "../../modules/screens/interfaces/user/category/Catego
 import UserNotificationSlice from "../../modules/screens/interfaces/user/userNoti/UserNotificationSlice"
 import UserSettingSlice from "../../modules/screens/interfaces/user/userSetting/UserSettingSlice"
 import LibraryInfoSlice from "../../modules/screens/interfaces/user/libraryInfo/LibraryInfoSlice"
+import BookManagementSlice from "../../modules/screens/interfaces/staff/bookManagement/BookManagementSlice"
+import InvoiceManagementSlice from "../../modules/screens/interfaces/staff/invoiceManagement/InvoiceManagementSlice"
+import StaffQRSlice from "../../modules/screens/interfaces/staff/staffQR/StaffQRSlice"
+import StaffSettingSlice from "../../modules/screens/interfaces/staff/staffSetting/StaffSettingSlice"
 
 const reducers = combineReducers({
     signIn: SignInSlice,
@@ -24,7 +28,11 @@ const reducers = combineReducers({
     category: CategorySlice,
     userNotification: UserNotificationSlice,
     userSetting: UserSettingSlice,
-    library: LibraryInfoSlice
+    library: LibraryInfoSlice,
+    bookManagement: BookManagementSlice,
+    invoiceManagement: InvoiceManagementSlice,
+    staffQR: StaffQRSlice,
+    staffSetting: StaffSettingSlice,
 })
 
 const rootReducer = (state, action) => {

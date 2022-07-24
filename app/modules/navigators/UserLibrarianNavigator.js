@@ -29,12 +29,19 @@ const UserLibrarianNavigator = () => {
         )
     }
 
+    const headerBackImage = () => {
+        return (
+            <Image source={Assets.Icons.ic_backArrow} style={{width: 10, height: 17.32, resizeMode: 'contain'}} />
+        )
+    }
+
     return (
         <Stack.Navigator
             initialRouteName={ScreenNames.userHomeScreen}
             screenOptions={{
                 headerTitleAlign: 'center',
                 headerTitleStyle: styles.headerTitleStyle,
+                headerBackImage: headerBackImage
             }}
         >
             <Stack.Screen

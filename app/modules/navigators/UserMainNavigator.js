@@ -68,7 +68,7 @@ const UserMainNavigator = ({ route }) => {
                     tabBarLabel: 'Tôi'
                 }}
                 initialParams={{
-                    userName: route.params.userName,
+                    userId: route.params.userId,
                 }}
             />
         </Tab.Navigator>

@@ -2,33 +2,39 @@ import { Assets } from "../../../assets/Assets";
 
 export const Librarians = [
     {
+        librarianId: 1,
         name: 'Library 1',
-        booksAmount: 2000,
         img: Assets.Images.library1,
+        books: [1, 10, 15, 20, 21],
     },
     {
+        librarianId: 2,
         name: 'Library 2',
-        booksAmount: 1952,
         img: Assets.Images.library2,
+        books: [2, 11, 12, 13, 14, 15, 16, 17, 18],
     },
     {
+        librarianId: 3,
         name: 'Library 3',
-        booksAmount: 900,
         img: Assets.Images.library3,
+        books: [3, 12, 17, 18, 19, 20],
     },
     {
+        librarianId: 4,
         name: 'Library 4',
-        booksAmount: 1830,
         img: Assets.Images.library4,
+        books: [4, 13, 14, 15, 16, 17, 18],
     },
     {
+        librarianId: 5,
         name: 'Library 5',
-        booksAmount: 15000,
         img: Assets.Images.library5,
+        books: [5, 14, 15, 16, 17, 18, 19],
     },
     {
+        librarianId: 6,
         name: 'Library 6',
-        booksAmount: 1534,
         img: Assets.Images.library6,
+        books: [6, 7, 8, 9, 20, 21],
     },
 ]
